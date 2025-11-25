@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Weather App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🌦 Real-Time Weather Information</h1>
+
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city name" required />
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if weather %}
+        <div class="weather-box">
+            <h2>{{ weather.city }}</h2>
+            <p><b>Temperature:</b> {{ weather.temperature }}°C</p>
+            <p><b>Humidity:</b> {{ weather.humidity }}%</p>
+            <p><b>Condition:</b> {{ weather.condition }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
